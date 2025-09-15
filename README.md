@@ -1,23 +1,20 @@
-# ronaldacost.github.io
-Landing + Checklist (Ruta Data Engineer).
+# GitHub Pages — /docs
+Publicación desde la carpeta **/docs**.
 
 ## Estructura
 ```
-.
+docs/
 ├── assets/
 │   ├── favicon.ico
-│   └── og-image.png
+│   ├── og-image.png
+│   └── style.css
 ├── data-engineer.html
-├── index.html
-├── docs/                        # Opcional para Pages desde /docs
-│   ├── data-engineer.html
-│   ├── index.html
-│   ├── favicon.ico
-│   └── og-image.png
-└── README.md
+└── index.html
 ```
 
-## Notas
-- El checklist guarda progreso en `localStorage` con clave **rex-platzi-de-checklist-v2**.
-- La landing lee esa misma clave y muestra el **porcentaje por fase automáticamente**.
-- Tema claro/oscuro sincronizado con `pref-theme`.
+## Cómo publicar
+1. Sube este repo a GitHub.
+2. En **Settings → Pages** elige **Source = Deploy from a branch** y **Branch = main** y **/docs**.
+3. Guarda. Tu sitio quedará disponible como `https://<tu-usuario>.github.io/` (o `/<repo>` si no usas repo de usuario).
+4. El **modo claro/oscuro** se guarda en `localStorage` con clave `pref-theme`.
+5. El checklist se guarda en `localStorage` con clave `rex-platzi-de-checklist-v2` y la landing lee esa clave para el **roadmap por fases**.
