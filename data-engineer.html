@@ -8,50 +8,15 @@
   <meta name="author" content="Ronald Acosta" />
   <meta name="color-scheme" content="light dark" />
 
+  <!-- Bootstrap + Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <style>
-    /* ===== Temas (claro/oscuro) con variables ===== */
-    :root{ --bg1:245 246 255; --bg2:240 248 255; --fg:18 23 29; --muted:98 108 118; --card:255 255 255; --ring:0 0 0 / .08; --brand:38 98 235; --brand2:8 192 120 }
-    [data-theme="dark"]{ --bg1:10 12 16; --bg2:20 24 32; --fg:236 239 244; --muted:154 165 177; --card:24 28 36; --ring:255 255 255 / .06; --brand:0 176 255; --brand2:0 230 118 }
-    @media (prefers-color-scheme: dark){ :root{ --bg1:10 12 16; --bg2:20 24 32; --fg:236 239 244; --muted:154 165 177; --card:24 28 36; --ring:255 255 255 / .06; --brand:0 176 255; --brand2:0 230 118 } }
-
-    html,body{height:100%}
-    body{ color:rgb(var(--fg)); background:
-      radial-gradient(1000px 600px at 10% -10%, rgb(var(--brand) / .12), transparent 60%),
-      radial-gradient(1000px 600px at 110% 10%, rgb(var(--brand2) / .10), transparent 60%),
-      linear-gradient(180deg, rgb(var(--bg1)) 0%, rgb(var(--bg2)) 100%);
-      background-attachment:fixed; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial }
-    .wrap{max-width:980px;margin:0 auto;padding:32px 16px 64px}
-    .card-glass{background:rgb(var(--card) / .90);border:1px solid rgb(var(--ring));border-radius:20px;backdrop-filter:blur(8px);box-shadow:0 10px 30px rgb(0 0 0 / .25); transition: box-shadow .2s ease, transform .06s ease}
-    .card-glass:hover{ box-shadow:0 14px 36px rgb(0 0 0 / .30) }
-    a{color: rgb(var(--brand))}
-    .progress{height:14px;background:rgb(255 255 255 / .08)} .progress-bar{background:linear-gradient(90deg, rgb(var(--brand)), rgb(var(--brand2)))}
-
-    /* ===== Ítems ===== */
-    .item-row{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border-radius:12px;border:1px solid rgb(255 255 255 / .06);background:rgb(255 255 255 / .02); transition: transform .06s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease}
-    .item-row+.item-row{margin-top:10px}
-    .item-row input[type=checkbox]{transform:scale(1.15);margin-top:3px}
-    .item-row:hover{ transform: translateY(-2px); background: rgb(255 255 255 / .06); border-color: rgb(var(--brand) / .35); box-shadow: 0 8px 24px rgb(0 0 0 / .25) }
-    .item-row:focus-within{ outline: 2px solid rgb(var(--brand) / .35) }
-
-    .item-title{font-weight:600}
-    .item-meta{color:rgb(var(--muted));font-size:.92rem}
-    .toolbar .form-control,.toolbar .form-select{background:rgb(255 255 255 / .06);border-color:rgb(255 255 255 / .14);color:rgb(var(--fg))}
-    .toolbar .form-control::placeholder{color:rgb(255 255 255 / .5)}
-    .toolbar .btn{border-color:rgb(255 255 255 / .18)}
-    .pill{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;border:1px solid rgb(255 255 255 / .14);background:rgb(255 255 255 / .04)}
-    .footer{color:rgb(var(--muted));font-size:.95rem}
-    .section-title{position:sticky;top:0;background:linear-gradient(180deg, rgb(var(--bg1) / .9), rgb(var(--bg2) / .9));backdrop-filter:blur(6px);z-index:2}
-
-    /* Toggle de tema */
-    .theme-toggle{ position:fixed; top:16px; right:16px; z-index:50; border-radius:999px; border:1px solid rgb(var(--ring)); background:rgb(var(--card) / .95); padding:8px 12px; cursor:pointer; display:flex; align-items:center; gap:8px }
-    .theme-toggle i{ color: rgb(var(--brand)) }
-  </style>
+  <!-- Estilos compartidos -->
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema"><i class="bi bi-moon-stars"></i><span class="d-none d-sm-inline">Tema</span></button>
+
   <div class="wrap">
     <header class="mb-4 d-flex flex-wrap align-items-center gap-2 justify-content-between">
       <div class="d-flex align-items-center gap-3">
@@ -68,6 +33,7 @@
       </div>
     </header>
 
+    <!-- Resumen -->
     <section class="card-glass p-3 p-md-4 mb-4">
       <div class="row g-3 align-items-center">
         <div class="col-12 col-lg-7">
@@ -85,6 +51,7 @@
       </div>
     </section>
 
+    <!-- Filtros -->
     <section class="card-glass p-3 p-md-4 mb-4 toolbar">
       <div class="row g-2 g-md-3 align-items-end">
         <div class="col-12 col-md-4"><label class="form-label">Buscar</label><input id="q" type="search" class="form-control" placeholder="curso, tema, tag…" /></div>
@@ -94,8 +61,10 @@
       </div>
     </section>
 
+    <!-- Lista -->
     <section id="list" class="card-glass p-3 p-md-4"></section>
 
+    <!-- Añadir personalizado -->
     <section class="card-glass p-3 p-md-4 mt-4">
       <h2 class="h5 mb-3">Agregar curso / hito personalizado</h2>
       <div class="row g-2">
@@ -109,8 +78,8 @@
     <footer class="mt-4 text-center footer"><small>Hecho por <a href="https://github.com/ronaldacost" target="_blank" rel="noopener">@ronaldacost</a> • Guardado local, sin servidor</small></footer>
   </div>
 
+  <!-- Script checklist -->
   <script>
-  // === Fases (módulos) ===
   const MODULES = [
     'Fase 1: Bases sólidas',
     'Fase 2: Python aplicado a datos',
@@ -119,36 +88,25 @@
     'Fase 5: Cloud & Big Data',
     'Fase 6: Data Ops y orquestación'
   ];
-
-  // === 30 semanas ===
   const BASE_ITEMS = [
-    // Fase 1
     { id:'f1-w01-linux-admin', title:'Semana 1 (1–7 Sep): Introduction to the Linux Server Administration ', module:'Fase 1: Bases sólidas', tags:['linux','servers'], done:true },
     { id:'f1-w02-docker', title:'Semana 2 (8–14 Sep): Docker Course: Fundamentals', module:'Fase 1: Bases sólidas', tags:['docker'] },
     { id:'f1-w03-se-fund', title:'Semana 3 (15–21 Sep): Software Engineering Fundamentals Course', module:'Fase 1: Bases sólidas', tags:['software','foundations'] },
     { id:'f1-w04-git', title:'Semana 4 (22–28 Sep): Git and Github Course', module:'Fase 1: Bases sólidas', tags:['git','github'] },
     { id:'f1-w05-bash', title:'Semana 5 (29 Sep–5 Oct): Programming Course at Bash', module:'Fase 1: Bases sólidas', tags:['bash','shell'] },
-
-    // Fase 2
     { id:'f2-w06-de-fund', title:'Semana 6 (6–12 Oct): Data Engineering Fundamentals Course', module:'Fase 2: Python aplicado a datos', tags:['data-eng'] },
     { id:'f2-w07-py-compr', title:'Semana 7 (13–19 Oct): Python Course: Comprehensions, Functions and Error Management', module:'Fase 2: Python aplicado a datos', tags:['python'] },
     { id:'f2-w08-pip-venv', title:'Semana 8 (20–26 Oct): Python Course: Pip and Virtual Environments', module:'Fase 2: Python aplicado a datos', tags:['python','pip','venv'] },
     { id:'f2-w09-jupyter', title:'Semana 9 (27 Oct–2 Nov): Working Environment Course for Data Science with Jupyter Notebooks and Anaconda', module:'Fase 2: Python aplicado a datos', tags:['jupyter','anaconda'] },
     { id:'f2-w10-py-ds', title:'Semana 10 (3–9 Nov): Python Course for Data Science', module:'Fase 2: Python aplicado a datos', tags:['python','data-science'] },
-
-    // Fase 3
     { id:'f3-w11-math-desc', title:'Semana 11 (10–16 Nov): Mathematics Course for Data Science: Descriptive Statistics', module:'Fase 3: Matemáticas y análisis de datos', tags:['math','stats'] },
     { id:'f3-w12-eda', title:'Semana 12 (17–23 Nov): Exploratory Data Analysis Course', module:'Fase 3: Matemáticas y análisis de datos', tags:['eda'] },
     { id:'f3-w13-prof-env', title:'Semana 13 (24–30 Nov): Professional Work Environment Configuration Course for Data Science', module:'Fase 3: Matemáticas y análisis de datos', tags:['env','productivity'] },
     { id:'f3-w14-missing-detect', title:'Semana 14 (1–7 Dic): Missing Data Management Course: Detection and Exploration', module:'Fase 3: Matemáticas y análisis de datos', tags:['missing-data'] },
     { id:'f3-w15-missing-impute', title:'Semana 15 (8–14 Dic): Missing Data Management Course: Imputation', module:'Fase 3: Matemáticas y análisis de datos', tags:['missing-data','imputation'] },
-
-    // Fase 4
     { id:'f4-w16-sql-prac', title:'Semana 16 (15–21 Dic): SQL Practical Course', module:'Fase 4: SQL y bases de datos', tags:['sql'] },
     { id:'f4-w17-postgres', title:'Semana 17 (22–28 Dic): PostgreSQL Course Applied to Data Science', module:'Fase 4: SQL y bases de datos', tags:['postgres','sql'] },
     { id:'f4-w18-nosql', title:'Semana 18 (29 Dic–4 Ene): NoSQL Database Course', module:'Fase 4: SQL y bases de datos', tags:['nosql','db'] },
-
-    // Fase 5
     { id:'f5-w19-aws-fund', title:'Semana 19 (5–11 Ene): Introduction Course to AWS: Fundamentals of Cloud Computing', module:'Fase 5: Cloud & Big Data', tags:['aws','cloud'] },
     { id:'f5-w20-aws-core', title:'Semana 20 (12–18 Ene): AWS Introduction Course: Computation, Storage and Databases', module:'Fase 5: Cloud & Big Data', tags:['aws','compute','storage','db'] },
     { id:'f5-w21-aws-adv', title:'Semana 21 (19–25 Ene): Introduction Course to AWS: Networks, Governance and Machine Learning', module:'Fase 5: Cloud & Big Data', tags:['aws','networking','ml'] },
@@ -160,16 +118,13 @@
     { id:'f5-w27-aws-iam', title:'Semana 27 (2–8 Mar): AWS Practical Course: Roles and Safety with IAM', module:'Fase 5: Cloud & Big Data', tags:['aws','iam','security'] },
     { id:'f5-w28-warehouse-lakes', title:'Semana 28 (9–15 Mar): Data Warehousing and Data Lakes Course', module:'Fase 5: Cloud & Big Data', tags:['dwh','datalake'] },
     { id:'f5-w29-databricks', title:'Semana 29 (16–22 Mar): Databricks Course: Delta Lake Architecture', module:'Fase 5: Cloud & Big Data', tags:['databricks','delta-lake'] },
-
-    // Fase 6
     { id:'f6-w30-airflow', title:'Semana 30 (23–29 Mar): Apache Airflow Fundamentals Course', module:'Fase 6: Data Ops y orquestación', tags:['airflow','orchestration'] },
   ];
-
   const KEY='rex-platzi-de-checklist-v2';
   const state={checks:{}, items:[...BASE_ITEMS]};
   const $=(s,r=document)=>r.querySelector(s);
 
-  // === Tema claro/oscuro ===
+  // Tema persistente
   (function(){
     const root=document.documentElement; const k='pref-theme';
     const stored=localStorage.getItem(k);
@@ -187,18 +142,18 @@
   function save(){ localStorage.setItem(KEY, JSON.stringify({checks:state.checks, items:state.items})); }
   function slugify(s){ return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,''); }
 
-  function renderFilters(){ $('#moduleFilter').innerHTML='<option value="">Todas las fases</option>'+MODULES.map(m=>`<option value="${m}">${m}</option>`).join(''); $('#newModule').innerHTML=MODULES.map(m=>`<option value="${m}">${m}</option>`).join(''); }
+  function renderFilters(){ document.querySelector('#moduleFilter').innerHTML='<option value="">Todas las fases</option>'+MODULES.map(m=>`<option value="${m}">${m}</option>`).join(''); document.querySelector('#newModule').innerHTML=MODULES.map(m=>`<option value="${m}">${m}</option>`).join(''); }
 
-  function renderProgress(){ const t=state.items.length, d=state.items.filter(it=> (state.checks[it.id]||it.done) ).length, p=t?Math.round(d/t*100):0; $('#countTotal').textContent=t; $('#countDone').textContent=d; $('#percent').textContent=p+'%'; $('#bar').style.width=p+'%'; }
+  function renderProgress(){ const t=state.items.length, d=state.items.filter(it=> (state.checks[it.id]||it.done) ).length, p=t?Math.round(d/t*100):0; document.querySelector('#countTotal').textContent=t; document.querySelector('#countDone').textContent=d; document.querySelector('#percent').textContent=p+'%'; document.querySelector('#bar').style.width=p+'%'; }
 
-  function renderList(){ const q=$('#q').value.trim().toLowerCase(); const mod=$('#moduleFilter').value; const only=$('#onlyPending').checked; const container=$('#list'); container.innerHTML='';
+  function renderList(){ const q=document.querySelector('#q').value.trim().toLowerCase(); const mod=document.querySelector('#moduleFilter').value; const only=document.querySelector('#onlyPending').checked; const container=document.querySelector('#list'); container.innerHTML='';
     const groups=new Map();
     for(const it of state.items){ if(mod && it.module!==mod) continue; if(q && !(it.title.toLowerCase().includes(q) || (it.tags||[]).some(t=>t.toLowerCase().includes(q)))) continue; const done=(state.checks.hasOwnProperty(it.id)?!!state.checks[it.id]:!!it.done); if(only && done) continue; if(!groups.has(it.module)) groups.set(it.module, []); groups.get(it.module).push(it); }
     for(const [module, items] of groups){ const section=document.createElement('div'); section.className='mb-4'; section.innerHTML=`<h2 class="h5 mb-3 section-title">${module}</h2>`; for(const it of items){ const done=(state.checks.hasOwnProperty(it.id)?!!state.checks[it.id]:!!it.done); const row=document.createElement('div'); row.className='item-row'; row.innerHTML=`<input type=\"checkbox\" ${done?'checked':''} data-id=\"${it.id}\"><div class=\"flex-grow-1\"><div class=\"item-title\">${it.title} ${it.url? `<a class=\"ms-1\" href=\"${it.url}\" target=\"_blank\" rel=\"noopener\"><i class=\"bi bi-box-arrow-up-right\"></i></a>`:''}</div><div class=\"item-meta\">${module} ${it.tags?.length?'• '+it.tags.join(', '):''}</div></div>`; section.appendChild(row);} container.appendChild(section);} renderProgress(); }
 
   function onListClick(e){ const cb=e.target.closest('input[type=\"checkbox\"][data-id]'); if(!cb) return; const id=cb.getAttribute('data-id'); state.checks[id]=cb.checked; save(); renderProgress(); }
 
-  function addCustom(){ const title=$('#newTitle').value.trim(), url=$('#newUrl').value.trim(), module=$('#newModule').value||MODULES[0]; if(!title) return alert('Escribe un título'); const id=slugify(title); if(state.items.some(i=>i.id===id)) return alert('Ya existe un ítem con ese título (id)'); state.items.push({id,title,url,module,tags:[]}); save(); $('#newTitle').value=''; $('#newUrl').value=''; renderList(); }
+  function addCustom(){ const title=document.querySelector('#newTitle').value.trim(), url=document.querySelector('#newUrl').value.trim(), module=document.querySelector('#newModule').value||MODULES[0]; if(!title) return alert('Escribe un título'); const id=slugify(title); if(state.items.some(i=>i.id===id)) return alert('Ya existe un ítem con ese título (id)'); state.items.push({id,title,url,module,tags:[]}); save(); document.querySelector('#newTitle').value=''; document.querySelector('#newUrl').value=''; renderList(); }
 
   function resetAll(){ if(!confirm('¿Seguro que quieres reiniciar todo tu progreso?')) return; state.checks={}; for(const it of state.items){ if(it.done) it.done=false; } save(); renderList(); }
 
@@ -207,15 +162,15 @@
   function importData(file){ const reader=new FileReader(); reader.onload=()=>{ try{ const data=JSON.parse(reader.result); if(Array.isArray(data.items)) state.items=data.items; if(data.checks) state.checks=data.checks; save(); renderList(); }catch(e){ alert('Archivo inválido'); } }; reader.readAsText(file); }
 
   function init(){ load(); renderFilters(); renderList();
-    $('#q').addEventListener('input', renderList);
-    $('#moduleFilter').addEventListener('change', renderList);
-    $('#onlyPending').addEventListener('change', renderList);
-    $('#list').addEventListener('click', onListClick);
-    $('#addItem').addEventListener('click', addCustom);
-    $('#resetAll').addEventListener('click', resetAll);
-    $('#btnExport').addEventListener('click', exportData);
-    $('#importFile').addEventListener('change', (e)=>{ if(e.target.files && e.target.files[0]) importData(e.target.files[0]); e.target.value=''; });
-    const params=new URLSearchParams(location.search); const m=params.get('m'); if(m && MODULES.includes(m)){ $('#moduleFilter').value=m; renderList(); }
+    document.querySelector('#q').addEventListener('input', renderList);
+    document.querySelector('#moduleFilter').addEventListener('change', renderList);
+    document.querySelector('#onlyPending').addEventListener('change', renderList);
+    document.querySelector('#list').addEventListener('click', onListClick);
+    document.querySelector('#addItem').addEventListener('click', addCustom);
+    document.querySelector('#resetAll').addEventListener('click', resetAll);
+    document.querySelector('#btnExport').addEventListener('click', exportData);
+    document.querySelector('#importFile').addEventListener('change', (e)=>{ if(e.target.files && e.target.files[0]) importData(e.target.files[0]); e.target.value=''; });
+    const params=new URLSearchParams(location.search); const m=params.get('m'); if(m && MODULES.includes(m)){ document.querySelector('#moduleFilter').value=m; renderList(); }
   }
   init();
   </script>
