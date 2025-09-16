@@ -20,6 +20,6 @@ docs/
 5. El checklist se guarda en `localStorage` con clave `rex-platzi-de-checklist-v2` y la landing lee esa clave para el **roadmap por fases**.
 
 ## Notas
-- El checklist guarda progreso en `localStorage` con clave **`rex-platzi-de-checklist-v2`**.
-- La landing lee esa misma clave y muestra el **porcentaje por fase automáticamente**.
-- Tema claro/oscuro sincronizado con `pref-theme`.
+1. El checklist guarda progreso en `localStorage` con clave **`rex-platzi-de-checklist-v2`**.
+2. La landing lee esa misma clave y muestra el **porcentaje por fase automáticamente**.
+3. Tema claro/oscuro sincronizado con `pref-theme`.
