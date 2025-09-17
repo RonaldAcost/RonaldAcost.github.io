@@ -161,60 +161,90 @@ select.form-select option {
   box-shadow: 0 0 0 .2rem rgb(var(--brand) / .25);
 }
 
-/* ---------- Ajustes tema CLARO ---------- */
+/* =========================================================
+   Controles unificados (input + select) en claro y oscuro
+   ========================================================= */
+
+/* Tokens para controles */
+:root{
+  --ctl-bg: 255 255 255;
+  --ctl-text: 18 23 29;
+  --ctl-border: 0 0 0;
+  --ctl-ph: 107 114 128;  /* placeholder */
+}
+[data-theme="dark"]{
+  --ctl-bg: 24 28 36;     /* acorde a --card oscuro */
+  --ctl-text: 236 239 244;
+  --ctl-border: 255 255 255;
+  --ctl-ph: 170 180 190;
+}
+
+/* El navegador pinta menús nativos según el tema */
+[data-theme="dark"]  { color-scheme: dark; }
 [data-theme="light"] { color-scheme: light; }
 
-/* Controles en la toolbar (más contraste y legibilidad) */
-[data-theme="light"] .toolbar .form-control,
-[data-theme="light"] .toolbar .form-select {
-  background: rgb(255 255 255 / .92);
-  color: #111;
-  border-color: rgb(0 0 0 / .10);
+/* === Caja base: igual para input y select dentro de la toolbar === */
+.toolbar .form-control,
+.toolbar .form-select{
+  background: rgb(var(--ctl-bg) / .92);
+  color: rgb(var(--ctl-text));
+  border: 1px solid rgb(var(--ctl-border) / .18);
   box-shadow: 0 1px 2px rgb(0 0 0 / .04) inset;
-}
-[data-theme="light"] .toolbar .form-control::placeholder {
-  color: #6b7280; /* gris legible en claro */
-}
-
-/* Select y opciones en claro (coherente con oscuro) */
-[data-theme="light"] select.form-select { 
-  background-color: #fff;
-  color: #111;
-  border-color: rgb(0 0 0 / .12);
-}
-[data-theme="light"] select.form-select option {
-  background-color: #ffffff;
-  color: #111111;
+  border-radius: .6rem;                         /* mismo radio p/ambos */
+  transition: background-color .15s, border-color .15s, box-shadow .15s;
 }
 
-/* Botón Reiniciar (outline-danger) visible en claro */
-[data-theme="light"] .btn.btn-outline-danger {
+/* Hover y foco (coherentes) */
+.toolbar .form-control:hover,
+.toolbar .form-select:hover{
+  border-color: rgb(var(--ctl-border) / .28);
+  background: rgb(var(--ctl-bg) / .96);
+}
+.form-control:focus, .form-select:focus{
+  border-color: rgb(var(--brand));
+  box-shadow: 0 0 0 .2rem rgb(var(--brand) / .25);
+  outline: none;
+}
+
+/* Placeholder legible en ambos temas */
+.toolbar .form-control::placeholder{
+  color: rgb(var(--ctl-ph));
+}
+
+/* === Select: caret y colores iguales al input === */
+.toolbar .form-select{
+  appearance: none;                                  /* quitamos caret nativo */
+  padding-right: 2.25rem;                            /* espacio para caret */
+  background-position: right .75rem center;
+  background-repeat: no-repeat;
+  background-size: 16px 12px;
+}
+
+/* Caret por tema (usa currentColor equivalente) */
+[data-theme="light"] .toolbar .form-select{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23111111'%3E%3Cpath d='M3.2 5.5l4.8 4.8L12.8 5.5z'/%3E%3C/svg%3E");
+}
+[data-theme="dark"] .toolbar .form-select{
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f2f2f2'%3E%3Cpath d='M3.2 5.5l4.8 4.8L12.8 5.5z'/%3E%3C/svg%3E");
+}
+
+/* Opciones del desplegable (lista abierta) con buen contraste */
+.toolbar .form-select option{
+  background-color: rgb(var(--ctl-bg));
+  color: rgb(var(--ctl-text));
+}
+
+/* Botón Reiniciar: mejor visibilidad en claro */
+[data-theme="light"] .btn.btn-outline-danger{
   border-color: #ef4444;
   color: #b91c1c;
 }
-[data-theme="light"] .btn.btn-outline-danger:hover {
+[data-theme="light"] .btn.btn-outline-danger:hover{
   background: rgb(239 68 68 / .06);
   color: #991b1b;
   border-color: #ef4444;
 }
 
-/* Barra de progreso: base más visible en claro */
-[data-theme="light"] .progress {
-  background: rgb(0 0 0 / .06);
-}
-
-/* Checkboxes con acento de marca en ambos temas */
-input[type="checkbox"] { accent-color: rgb(var(--brand)); }
-[data-theme="dark"] input[type="checkbox"] { accent-color: rgb(var(--brand2)); }
-
-/* Foco consistente */
-.form-select:focus, .form-control:focus {
-  border-color: rgb(var(--brand));
-  box-shadow: 0 0 0 .2rem rgb(var(--brand) / .25);
-}
-
-/* Tema toggle: borde un poco más marcado en claro */
-[data-theme="light"] .theme-toggle {
-  border-color: rgb(0 0 0 / .10);
-  background: rgb(255 255 255 / .95);
-}
+/* Checkboxes con acento consistente */
+input[type="checkbox"]{ accent-color: rgb(var(--brand)); }
+[data-theme="dark"] input[type="checkbox"]{ accent-color: rgb(var(--brand2)); }
