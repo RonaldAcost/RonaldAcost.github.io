@@ -89,36 +89,47 @@
     'Fase 6: Data Ops y orquestación'
   ];
   const BASE_ITEMS = [
-    { id:'f1-w01-linux-admin', title:'Semana 1 (1–7 Sep): Introduction to the Linux Server Administration ', module:'Fase 1: Bases sólidas', tags:['linux','servers'], done:true },
-    { id:'f1-w02-docker', title:'Semana 2 (8–14 Sep): Docker Course: Fundamentals', module:'Fase 1: Bases sólidas', tags:['docker'] },
-    { id:'f1-w03-se-fund', title:'Semana 3 (15–21 Sep): Software Engineering Fundamentals Course', module:'Fase 1: Bases sólidas', tags:['software','foundations'] },
-    { id:'f1-w04-git', title:'Semana 4 (22–28 Sep): Git and Github Course', module:'Fase 1: Bases sólidas', tags:['git','github'] },
-    { id:'f1-w05-bash', title:'Semana 5 (29 Sep–5 Oct): Programming Course at Bash', module:'Fase 1: Bases sólidas', tags:['bash','shell'] },
-    { id:'f2-w06-de-fund', title:'Semana 6 (6–12 Oct): Data Engineering Fundamentals Course', module:'Fase 2: Python aplicado a datos', tags:['data-eng'] },
-    { id:'f2-w07-py-compr', title:'Semana 7 (13–19 Oct): Python Course: Comprehensions, Functions and Error Management', module:'Fase 2: Python aplicado a datos', tags:['python'] },
-    { id:'f2-w08-pip-venv', title:'Semana 8 (20–26 Oct): Python Course: Pip and Virtual Environments', module:'Fase 2: Python aplicado a datos', tags:['python','pip','venv'] },
-    { id:'f2-w09-jupyter', title:'Semana 9 (27 Oct–2 Nov): Working Environment Course for Data Science with Jupyter Notebooks and Anaconda', module:'Fase 2: Python aplicado a datos', tags:['jupyter','anaconda'] },
-    { id:'f2-w10-py-ds', title:'Semana 10 (3–9 Nov): Python Course for Data Science', module:'Fase 2: Python aplicado a datos', tags:['python','data-science'] },
-    { id:'f3-w11-math-desc', title:'Semana 11 (10–16 Nov): Mathematics Course for Data Science: Descriptive Statistics', module:'Fase 3: Matemáticas y análisis de datos', tags:['math','stats'] },
-    { id:'f3-w12-eda', title:'Semana 12 (17–23 Nov): Exploratory Data Analysis Course', module:'Fase 3: Matemáticas y análisis de datos', tags:['eda'] },
-    { id:'f3-w13-prof-env', title:'Semana 13 (24–30 Nov): Professional Work Environment Configuration Course for Data Science', module:'Fase 3: Matemáticas y análisis de datos', tags:['env','productivity'] },
-    { id:'f3-w14-missing-detect', title:'Semana 14 (1–7 Dic): Missing Data Management Course: Detection and Exploration', module:'Fase 3: Matemáticas y análisis de datos', tags:['missing-data'] },
-    { id:'f3-w15-missing-impute', title:'Semana 15 (8–14 Dic): Missing Data Management Course: Imputation', module:'Fase 3: Matemáticas y análisis de datos', tags:['missing-data','imputation'] },
-    { id:'f4-w16-sql-prac', title:'Semana 16 (15–21 Dic): SQL Practical Course', module:'Fase 4: SQL y bases de datos', tags:['sql'] },
-    { id:'f4-w17-postgres', title:'Semana 17 (22–28 Dic): PostgreSQL Course Applied to Data Science', module:'Fase 4: SQL y bases de datos', tags:['postgres','sql'] },
-    { id:'f4-w18-nosql', title:'Semana 18 (29 Dic–4 Ene): NoSQL Database Course', module:'Fase 4: SQL y bases de datos', tags:['nosql','db'] },
-    { id:'f5-w19-aws-fund', title:'Semana 19 (5–11 Ene): Introduction Course to AWS: Fundamentals of Cloud Computing', module:'Fase 5: Cloud & Big Data', tags:['aws','cloud'] },
-    { id:'f5-w20-aws-core', title:'Semana 20 (12–18 Ene): AWS Introduction Course: Computation, Storage and Databases', module:'Fase 5: Cloud & Big Data', tags:['aws','compute','storage','db'] },
-    { id:'f5-w21-aws-adv', title:'Semana 21 (19–25 Ene): Introduction Course to AWS: Networks, Governance and Machine Learning', module:'Fase 5: Cloud & Big Data', tags:['aws','networking','ml'] },
-    { id:'f5-w22-aws-ec2', title:'Semana 22 (26 Ene–1 Feb): AWS Practical Course: Computing with EC2', module:'Fase 5: Cloud & Big Data', tags:['aws','ec2'] },
-    { id:'f5-w23-aws-storage', title:'Semana 23 (2–8 Feb): Storage Practical Course in AWS', module:'Fase 5: Cloud & Big Data', tags:['aws','s3','storage'] },
-    { id:'f5-w24-aws-db', title:'Semana 24 (9–15 Feb): Practical Databases Course in AWS', module:'Fase 5: Cloud & Big Data', tags:['aws','rds','dynamo'] },
-    { id:'f5-w25-aws-bigdata', title:'Semana 25 (16–22 Feb): Big Data Course in AWS', module:'Fase 5: Cloud & Big Data', tags:['aws','big-data'] },
-    { id:'f5-w26-aws-redshift', title:'Semana 26 (23 Feb–1 Mar): AWS Redshift Course for Big Data Management', module:'Fase 5: Cloud & Big Data', tags:['aws','redshift'] },
-    { id:'f5-w27-aws-iam', title:'Semana 27 (2–8 Mar): AWS Practical Course: Roles and Safety with IAM', module:'Fase 5: Cloud & Big Data', tags:['aws','iam','security'] },
-    { id:'f5-w28-warehouse-lakes', title:'Semana 28 (9–15 Mar): Data Warehousing and Data Lakes Course', module:'Fase 5: Cloud & Big Data', tags:['dwh','datalake'] },
-    { id:'f5-w29-databricks', title:'Semana 29 (16–22 Mar): Databricks Course: Delta Lake Architecture', module:'Fase 5: Cloud & Big Data', tags:['databricks','delta-lake'] },
-    { id:'f6-w30-airflow', title:'Semana 30 (23–29 Mar): Apache Airflow Fundamentals Course', module:'Fase 6: Data Ops y orquestación', tags:['airflow','orchestration'] },
+  // Fase 1
+  { id:'w01-linux-admin', title:'Semana 1: Curso de Introducción a la Administración de Servidores Linux', module:'Fase 1: Bases sólidas', tags:['linux','servers'] },
+  { id:'w02-git-github', title:'Semana 2: Curso de Git y GitHub', module:'Fase 1: Bases sólidas', tags:['git','github'] },
+  { id:'w03-se-fund', title:'Semana 3: Curso de Fundamentos de Ingeniería de Software', module:'Fase 1: Bases sólidas', tags:['software','fundamentos'] },
+  { id:'w04-de-fund', title:'Semana 4: Curso de Fundamentos de Ingeniería de Datos', module:'Fase 1: Bases sólidas', tags:['data-engineering','fundamentos'] },
+
+  // Fase 2
+  { id:'w05-py-compr', title:'Semana 5: Curso de Python: Comprehensions, Funciones y Manejo de Errores', module:'Fase 2: Python aplicado a datos', tags:['python'] },
+  { id:'w06-pip-venv', title:'Semana 6: Curso de Python: PIP y Entornos Virtuales', module:'Fase 2: Python aplicado a datos', tags:['python','pip','venv'] },
+  { id:'w07-jupyter', title:'Semana 7: Curso de Entorno de Trabajo para Ciencia de Datos con Jupyter Notebooks y Anaconda', module:'Fase 2: Python aplicado a datos', tags:['jupyter','anaconda'] },
+  { id:'w08-prof-env', title:'Semana 8: Curso de Configuración Profesional de Entorno de Trabajo para Ciencia de Datos', module:'Fase 2: Python aplicado a datos', tags:['entorno','productividad'] },
+  { id:'w09-py-ds', title:'Semana 9: Curso de Python para Ciencia de Datos', module:'Fase 2: Python aplicado a datos', tags:['python','data-science'] },
+
+  // Fase 3
+  { id:'w10-math-desc', title:'Semana 10: Curso de Matemáticas para Data Science: Estadística Descriptiva', module:'Fase 3: Matemáticas y análisis de datos', tags:['matemáticas','estadística'] },
+  { id:'w11-eda', title:'Semana 11: Curso de Análisis Exploratorio de Datos', module:'Fase 3: Matemáticas y análisis de datos', tags:['eda'] },
+  { id:'w12-missing-detect', title:'Semana 12: Curso de Manejo de Datos Faltantes: Detección y Exploración', module:'Fase 3: Matemáticas y análisis de datos', tags:['missing-data'] },
+  { id:'w13-missing-impute', title:'Semana 13: Curso de Manejo de Datos Faltantes: Imputación', module:'Fase 3: Matemáticas y análisis de datos', tags:['missing-data','imputación'] },
+
+  // Fase 4
+  { id:'w14-sql-prac', title:'Semana 14: Curso Práctico de SQL', module:'Fase 4: SQL y bases de datos', tags:['sql'] },
+  { id:'w15-postgres', title:'Semana 15: Curso de PostgreSQL Aplicado a Ciencia de Datos', module:'Fase 4: SQL y bases de datos', tags:['postgres','sql'] },
+  { id:'w16-nosql', title:'Semana 16: Curso de Base de Datos NoSQL', module:'Fase 4: SQL y bases de datos', tags:['nosql','db'] },
+
+  // Fase 5
+  { id:'w17-aws-fund', title:'Semana 17: Curso de Introducción a AWS: Fundamentos de Cloud Computing', module:'Fase 5: Cloud & Big Data', tags:['aws','cloud'] },
+  { id:'w18-aws-core', title:'Semana 18: Curso de Introducción a AWS: Cómputo, Almacenamiento y Bases de Datos', module:'Fase 5: Cloud & Big Data', tags:['aws','compute','storage','db'] },
+  { id:'w19-aws-adv', title:'Semana 19: Curso de Introducción a AWS: Redes, Gobernanza y Machine Learning', module:'Fase 5: Cloud & Big Data', tags:['aws','networking','ml'] },
+  { id:'w20-aws-ec2', title:'Semana 20: Curso Práctico de AWS: Cómputo con EC2', module:'Fase 5: Cloud & Big Data', tags:['aws','ec2'] },
+  { id:'w21-aws-storage', title:'Semana 21: Curso Práctico de Storage en AWS', module:'Fase 5: Cloud & Big Data', tags:['aws','s3','storage'] },
+  { id:'w22-aws-db', title:'Semana 22: Curso Práctico de Bases de Datos en AWS', module:'Fase 5: Cloud & Big Data', tags:['aws','rds','dynamodb'] },
+  { id:'w23-aws-bigdata', title:'Semana 23: Curso de Big Data en AWS', module:'Fase 5: Cloud & Big Data', tags:['aws','big-data'] },
+  { id:'w24-aws-redshift', title:'Semana 24: Curso de AWS Redshift para Manejo de Big Data', module:'Fase 5: Cloud & Big Data', tags:['aws','redshift'] },
+  { id:'w25-aws-iam', title:'Semana 25: Curso Práctico de AWS: Roles y Seguridad con IAM', module:'Fase 5: Cloud & Big Data', tags:['aws','iam','security'] },
+
+  // Fase 6
+  { id:'w26-dwh-lakes', title:'Semana 26: Curso de Data Warehousing y Data Lakes', module:'Fase 6: Data Ops y orquestación', tags:['dwh','datalake'] },
+  { id:'w27-databricks', title:'Semana 27: Curso de Databricks: Arquitectura Delta Lake', module:'Fase 6: Data Ops y orquestación', tags:['databricks','delta-lake'] },
+  { id:'w28-airflow', title:'Semana 28: Curso de Fundamentos de Apache Airflow', module:'Fase 6: Data Ops y orquestación', tags:['airflow','orchestración'] },
+  { id:'w29-bash', title:'Semana 29: Curso de Programación en Bash Shell', module:'Fase 6: Data Ops y orquestación', tags:['bash','shell'] },
+  { id:'w30-docker', title:'Semana 30: Curso de Docker: Fundamentos', module:'Fase 6: Data Ops y orquestación', tags:['docker'] },
   ];
   const KEY='rex-platzi-de-checklist-v2';
   const state={checks:{}, items:[...BASE_ITEMS]};
