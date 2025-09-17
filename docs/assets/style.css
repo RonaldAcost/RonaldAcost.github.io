@@ -160,3 +160,61 @@ select.form-select option {
   border-color: rgb(var(--brand));
   box-shadow: 0 0 0 .2rem rgb(var(--brand) / .25);
 }
+
+/* ---------- Ajustes tema CLARO ---------- */
+[data-theme="light"] { color-scheme: light; }
+
+/* Controles en la toolbar (más contraste y legibilidad) */
+[data-theme="light"] .toolbar .form-control,
+[data-theme="light"] .toolbar .form-select {
+  background: rgb(255 255 255 / .92);
+  color: #111;
+  border-color: rgb(0 0 0 / .10);
+  box-shadow: 0 1px 2px rgb(0 0 0 / .04) inset;
+}
+[data-theme="light"] .toolbar .form-control::placeholder {
+  color: #6b7280; /* gris legible en claro */
+}
+
+/* Select y opciones en claro (coherente con oscuro) */
+[data-theme="light"] select.form-select { 
+  background-color: #fff;
+  color: #111;
+  border-color: rgb(0 0 0 / .12);
+}
+[data-theme="light"] select.form-select option {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+/* Botón Reiniciar (outline-danger) visible en claro */
+[data-theme="light"] .btn.btn-outline-danger {
+  border-color: #ef4444;
+  color: #b91c1c;
+}
+[data-theme="light"] .btn.btn-outline-danger:hover {
+  background: rgb(239 68 68 / .06);
+  color: #991b1b;
+  border-color: #ef4444;
+}
+
+/* Barra de progreso: base más visible en claro */
+[data-theme="light"] .progress {
+  background: rgb(0 0 0 / .06);
+}
+
+/* Checkboxes con acento de marca en ambos temas */
+input[type="checkbox"] { accent-color: rgb(var(--brand)); }
+[data-theme="dark"] input[type="checkbox"] { accent-color: rgb(var(--brand2)); }
+
+/* Foco consistente */
+.form-select:focus, .form-control:focus {
+  border-color: rgb(var(--brand));
+  box-shadow: 0 0 0 .2rem rgb(var(--brand) / .25);
+}
+
+/* Tema toggle: borde un poco más marcado en claro */
+[data-theme="light"] .theme-toggle {
+  border-color: rgb(0 0 0 / .10);
+  background: rgb(255 255 255 / .95);
+}
