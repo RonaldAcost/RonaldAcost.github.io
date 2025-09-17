@@ -355,3 +355,34 @@ body::after{
   background: rgb(var(--card) / .92);
   border-color: rgb(255 255 255 / .10);
 }
+
+/* ===== Fix tema CLARO: botón Volver + barra de progreso ===== */
+
+/* 1) Botón "Volver" visible en claro (sin tocar el HTML) */
+[data-theme="light"] .btn.btn-outline-light{
+  color: #1f2937;                          /* gris oscuro legible */
+  border-color: rgb(0 0 0 / .22);          /* borde visible */
+  background: rgb(255 255 255 / .55);      /* leve fondo para contraste sobre el bg */
+  box-shadow: 0 1px 2px rgb(0 0 0 / .06);
+}
+[data-theme="light"] .btn.btn-outline-light:hover{
+  background: rgb(0 0 0 / .04);
+  border-color: rgb(0 0 0 / .32);
+  color: #111827;
+}
+
+/* 2) Pista de la barra de progreso con borde en claro */
+.progress{ border-radius: 999px; } /* remata las esquinas en ambos temas */
+
+[data-theme="light"] .progress{
+  background: linear-gradient(180deg,
+              rgb(0 0 0 / .05),
+              rgb(0 0 0 / .08));
+  border: 1px solid rgb(0 0 0 / .12);      /* ¡borde visible! */
+  box-shadow: inset 0 1px 1px rgb(255 255 255 / .6);
+}
+
+/* opcional: un filo suave al relleno para que “separe” del track en claro */
+[data-theme="light"] .progress-bar{
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / .35);
+}
