@@ -113,3 +113,50 @@ a{ color: rgb(var(--brand)); }
   padding:8px 12px; cursor:pointer; display:flex; align-items:center; gap:8px;
 }
 .theme-toggle i{ color: rgb(var(--brand)); }
+
+
+/* === 1) Indicar al navegador el esquema de color por tema === */
+[data-theme="dark"] { color-scheme: dark; }
+[data-theme="light"] { color-scheme: light; }
+
+/* === 2) Select visible en oscuro y claro (fallback cross-browser) === */
+select.form-select {
+  /* base neutra; Bootstrap ya pone tamaños/bordes */
+  background-color: rgb(255 255 255 / .86);
+  color: #111;
+  border-color: rgb(var(--ring));
+}
+
+/* Tema oscuro: alto contraste para el control cerrado */
+[data-theme="dark"] select.form-select {
+  background-color: #1e1e1e;     /* fondo del control */
+  color: #f2f2f2;                /* texto de la opción seleccionada */
+  border-color: #3a3a3a;
+}
+
+/* Opciones del desplegable (lista abierta) */
+select.form-select option {
+  background-color: #ffffff;     /* claro por defecto */
+  color: #111111;
+}
+[data-theme="dark"] select.form-select option {
+  background-color: #151515;     /* fondo de la lista en oscuro */
+  color: #f2f2f2;                /* texto de cada opción */
+}
+
+/* Placeholder y bordes en la toolbar para que no se “laven” en oscuro */
+.toolbar .form-control,
+.toolbar .form-select {
+  background: rgb(255 255 255 / .06);
+  border-color: rgb(255 255 255 / .18);
+  color: rgb(var(--fg));
+}
+[data-theme="dark"] .toolbar .form-control::placeholder {
+  color: rgb(255 255 255 / .55);
+}
+
+/* Accesibilidad: foco visible en ambos temas */
+.form-select:focus, .form-control:focus {
+  border-color: rgb(var(--brand));
+  box-shadow: 0 0 0 .2rem rgb(var(--brand) / .25);
+}
