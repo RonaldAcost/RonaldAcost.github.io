@@ -315,3 +315,43 @@ body::after{
 @media (prefers-reduced-motion: reduce){
   body::before, body::after { animation: none; }
 }
+
+/* ====== Mejor contraste en INDEX (modo oscuro) ====== */
+
+/* Tarjetas de enlaces */
+[data-theme="dark"] .link-item{
+  --btn-bg: 28 32 40; /* superficie oscura */
+  background: linear-gradient(180deg, rgb(var(--btn-bg) / .96), rgb(var(--btn-bg) / .92));
+  border-color: rgb(255 255 255 / .10);
+  box-shadow: 0 10px 24px rgb(0 0 0 / .28);
+}
+[data-theme="dark"] .link-item .fw-bold{ color:#e9edf2; }
+[data-theme="dark"] .link-item small{ color: rgb(200 210 220 / .85); }
+[data-theme="dark"] .link-item:hover{
+  border-color: rgb(var(--brand) / .45);
+  box-shadow: 0 14px 32px rgb(0 0 0 / .35);
+  transform: translateY(-2px);
+}
+
+/* Roadmap: sobreescribe estilos inline claros con !important */
+[data-theme="dark"] #phaseRoadmap .border.rounded-3{
+  background: rgb(var(--card) / .92) !important;
+  border-color: rgb(255 255 255 / .10) !important;
+}
+[data-theme="dark"] #phaseRoadmap .progress{ background: rgb(255 255 255 / .12); }
+[data-theme="dark"] #phaseRoadmap .progress-bar{ color: rgb(255 255 255 / .92); }
+
+/* Un pelín más de contraste general en oscuro */
+[data-theme="dark"] .card-glass{
+  background: rgb(var(--card) / .92);
+  border-color: rgb(255 255 255 / .08);
+}
+
+.roadmap-card{
+  background: rgb(255 255 255 / .6);
+  border-color: rgb(var(--ring));
+}
+[data-theme="dark"] .roadmap-card{
+  background: rgb(var(--card) / .92);
+  border-color: rgb(255 255 255 / .10);
+}

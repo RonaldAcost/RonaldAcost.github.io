@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portafolio • Git, Docker & Datos</title>
-  <meta name="description" content="Links a cursos, proyectos y roadmap. Ingeniería de datos, Git/GitHub, Docker y más." />
+  <title>Ruta Data Engineer — Checklist</title>
+  <meta name="description" content="Links a cursos, proyectos y roadmap. Ingeniería de datos y más." />
   <meta name="author" content="Ronald Acosta" />
   <meta name="color-scheme" content="light dark" />
 
@@ -27,7 +27,7 @@
       <div class="links container">
         <div class="row g-3">
           <div class="col-12"><a class="link-item" href="https://platzi.com/mis-rutas/15811542/" target="_blank" rel="noopener"><i class="bi bi-box-seam"></i><div class="flex-grow-1"><div class="fw-bold">Mi ruta de Data Engineer</div><small>Recolecta, procesa y organiza datos con herramientas modernas y servicios en la nube</small></div><i class="bi bi-arrow-up-right"></i></a></div>
-          <div class="col-12"><a class="link-item" href="https://ronaldacost.github.io/" target="_blank" rel="noopener"><i class="bi bi-window"></i><div class="flex-grow-1"><div class="fw-bold">Mi sitio web</div><small>Proyectos, artículos y demos</small></div><i class="bi bi-arrow-up-right"></i></a></div>
+          <div class="col-12"><a class="link-item" href="https://github.com/RonaldAcost/RonaldAcost" target="_blank" rel="noopener"><i class="bi bi-window"></i><div class="flex-grow-1"><div class="fw-bold">Mi Portada de Github</div><small>Proyectos, artículos y demos</small></div><i class="bi bi-arrow-up-right"></i></a></div>
           <div class="col-12 col-md-6"><a class="link-item" href="./data-engineer.html"><i class="bi bi-check2-square"></i><div class="flex-grow-1"><div class="fw-bold">Ruta Data Engineer</div><small>Checklist por fases y semanas</small></div><i class="bi bi-arrow-right-short"></i></a></div>
           <div class="col-12 col-md-6"><a class="link-item" href="https://www.linkedin.com/feed/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i><div class="flex-grow-1"><div class="fw-bold">LinkedIn</div><small>Trayectoria y red</small></div><i class="bi bi-arrow-up-right"></i></a></div>
         </div>
@@ -88,7 +88,7 @@
       const pct = total ? Math.round(passed/total*100) : 0;
       host.insertAdjacentHTML('beforeend', `
         <div class="col-12">
-          <div class="p-3 border rounded-3" style="background:rgb(255 255 255 / .5);border-color:rgb(var(--ring));">
+          <div class="roadmap-card p-3 border rounded-3">
             <div class="d-flex justify-content-between align-items-center mb-1">
               <div class="fw-semibold">${m}</div>
               <div class="text-secondary small">${passed}/${total} • ${pct}%</div>
